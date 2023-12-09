@@ -8,14 +8,14 @@
     'argoneond.service' not in services or
     'argononed.service' not in services
 
-- name: "{{ 'Enable' if argoneon_rtc_service_enabled else 'Disable' }} RTC service"
+- name: "{{ argoneon_enable_rtc_service | ternary('Enable', 'Disable') }} RTC service"
   service:
     name: argoneond
-    state: "{{ 'started' if argoneon_rtc_service_enabled else 'stopped' }}"
-    enabled: "{{ argoneon_rtc_service_enabled }}"
+    state: "{{ argoneon_enable_rtc_service | ternary('started', 'stopped') }}"
+    enabled: "{{ argoneon_enable_rtc_service }}"
 
-- name: "{{ 'Enable' if argoneon_fan_lcd_service_enabled else 'Disable' }} LCD and fan service"
+- name: "{{ argoneon_enable_fan_lcd_service | ternary('Enable', 'Disable') }} LCD and fan service"
   service:
     name: argononed
-    state: "{{ 'started' if argoneon_fan_lcd_service_enabled else 'stopped' }}"
-    enabled: "{{ argoneon_fan_lcd_service_enabled }}"
+    state: "{{ argoneon_enable_fan_lcd_service | ternary('started', 'stopped') }}"
+    enabled: "{{ argoneon_enable_fan_lcd_service }}"

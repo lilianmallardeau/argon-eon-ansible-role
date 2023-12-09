@@ -11,10 +11,10 @@ None
 Role Variables
 --------------
 
-- `argoneon_rtc_service_enabled`: boolean, default: `yes`  
+- `argoneon_enable_rtc_service`: boolean, default: `yes`  
 Whether to enable or disable Argon EON service for RTC
 
-- `argoneon_fan_lcd_service_enabled`: boolean, default: `yes`  
+- `argoneon_enable_fan_lcd_service`: boolean, default: `yes`  
 Whether to enable or disable Argon EON service for LCD and fan
 
 Dependencies
@@ -38,8 +38,8 @@ To disable one service:
   roles:
     - role: argon-eon
       vars:
-        argoneon_rtc_service_enabled: no
-        argoneon_fan_lcd_service_enabled: yes
+        argoneon_enable_rtc_service: no
+        argoneon_enable_fan_lcd_service: yes
 ```
 
 License
