@@ -5,8 +5,8 @@
 - name: Install Argon EON services
   shell: curl https://download.argon40.com/argoneon.sh | bash
   when: >
-    'argoneond.service' not in services or
-    'argononed.service' not in services
+    'argoneond.service' not in ansible_facts.services or
+    'argononed.service' not in ansible_facts.services
 
 - name: "{{ argoneon_enable_rtc_service | ternary('Enable', 'Disable') }} RTC service"
   service:
